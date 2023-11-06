@@ -30,3 +30,15 @@ int main()
     printf("Even: %d\nOdd: %d\nPositive: %d\nNegative: %d\n", even, odd, pos, neg);
     return 0;
 }
+
+// #include <stdio.h>
+// int main()
+// {
+//     int i = 10;
+//     while (i >= 0)
+//     {
+//         printf("%d ", i);
+//         i -= 2;
+//     }
+//     return 0;
+// }
