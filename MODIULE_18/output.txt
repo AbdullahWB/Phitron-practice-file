@@ -1,4 +1,1 @@
-x er address - 0061FF1C
-ptr er value - 0061FF18
-ptr er value - 0061FF1C
-ptr er memory size - 4
+x er value: 10
