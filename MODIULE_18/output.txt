@@ -1,6 +1,4 @@
-24
-25
-25
-4
-366456
-10
+x er address - 0061FF1C
+ptr er value - 0061FF18
+ptr er value - 0061FF1C
+ptr er memory size - 4
