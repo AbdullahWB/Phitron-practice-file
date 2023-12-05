@@ -1,6 +1,5 @@
-Starting main program
-Starting hello program
-Starting world program
-Ending world program
-Ending hello program
-Ending main program
+1
+2
+3
+4
+5
