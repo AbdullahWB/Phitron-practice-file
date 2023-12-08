@@ -1,1 +1,1 @@
-It is scaler Diagonal
+It is unit matrix
