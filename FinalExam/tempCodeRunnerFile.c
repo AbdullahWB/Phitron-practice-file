@@ -1,28 +1,40 @@
 #include <stdio.h>
 
-int fun(int m, int a, int b, int c){
-    if(a==0|| b==0|| c==0){
-        if(a==0) return b*c;
-        if(b==0) return a*c;
-        if(c==0) return a*b;
+long long int fun(long long int m,long long int a, long long int b,long long int c)
+{
+    if (a == 0 || b == 0 || c == 0)
+    {
+        if (a == 0)
+            return b * c;
+        if (b == 0)
+            return a * c;
+        if (c == 0)
+            return a * b;
     }
-    if(m%a==0 && m%b==0 && m%c==0){
-        return m/(a*b*c);
+
+    long long int mull = (a * b * c);
+
+    if (m % mull == 0)
+    {
+        return (m / mull);
     }
-    return -1;
+    else
+    {
+        return -1;
+    }
 }
-     
+
 int main()
 {
-    int n;
-    scanf("%d", &n);
+    long long int t;
+    scanf("%lld", &t);
+    for (int i = 0; i < t; i++)
+    {
+        long long int m, a, b, c;
+        scanf("%lld %lld %lld %lld", &m, &a, &b, &c);
 
-    while(n--){
-        int m,a,b,c;
-        scanf("%d %d %d %d", &m, &a, &b, &c);
-        int miss=fun(m,a,b,c);
-        printf("%d\n", miss);
+        long long int result = fun(m, a, b, c);
+        printf("%lld\n", result);
     }
-
     return 0;
 }
