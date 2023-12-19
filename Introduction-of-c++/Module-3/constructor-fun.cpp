@@ -17,14 +17,16 @@ public:
 
 student *fun()
 {
-    student Abdullah(29, 34, 5.01);
-    student *p = &Abdullah;
-    return p;
+    student *karim=new student(29, 34, 5.01);
+    // student *p = &Abdullah;
+    return karim;
 };
 
 int main()
 {
     student *ans = fun();
+    cout << ans->cla << " " << ans->roll << " " << ans->gpa << endl;
+    delete ans;
     cout << ans->cla << " " << ans->roll << " " << ans->gpa << endl;
     return 0;
 }
