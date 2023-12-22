@@ -6,7 +6,8 @@ int main()
     char s[100005];
     while(cin.getline(s, 100005)){
         sort(s, s+strlen(s));
-        for(int i = 0; i <strlen(s); i++){
+        int len = strlen(s);
+        for(int i = 0; i <len; i++){
             if(s[i]!=' '){
                 cout<<s[i];
             }
