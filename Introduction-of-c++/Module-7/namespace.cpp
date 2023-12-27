@@ -13,14 +13,14 @@ namespace mohammad{
     }
 }
 using namespace abdullah;
-using namespace mohammad;
+// using namespace mohammad;
 
 int main()
 {
     cout<< age1<< endl;
     hello();
-    cout<< age2<< endl;
-    gelo();
+    cout<< mohammad::age2<< endl;
+    mohammad::gelo();
 
     return 0;
 }
