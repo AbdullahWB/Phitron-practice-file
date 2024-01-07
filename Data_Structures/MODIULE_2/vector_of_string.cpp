@@ -11,8 +11,11 @@ int main()
         cin >> s;
         v.push_back(s);
     }   
-    for(int i=0; i<v.size(); i++){
-        cout << v[i] << endl;
+    // for(int i=0; i<v.size(); i++){
+    //     cout << v[i] << endl;
+    // }
+    for(string s:v){
+        cout << s << endl;
     }
     return 0;
 }
