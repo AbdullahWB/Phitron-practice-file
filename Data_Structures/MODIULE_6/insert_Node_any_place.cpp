@@ -20,6 +20,9 @@ void insert_at_tail(Node *&head, int v) // in Link List Just have head so in fun
     if (head == NULL)
     {
         head = newNode;
+        cout << endl
+             << "Inserted at Head" << endl
+             << endl;
         return;
     }
 
@@ -53,10 +56,17 @@ void print_linked_list(Node *head)
 void insert_at_position(Node *head, int pos, int v)
 {
     Node *newNode = new Node(v);
-    Node *tmp= head;
-    for(int i=1; i<pos-1; i++){
-        tmp=tmp->next;
+    Node *tmp = head;
+    for (int i = 1; i < pos - 1; i++)
+    {
+        tmp = tmp->next;
     }
+    newNode->next = tmp->next;
+    tmp->next = newNode;
+    cout << endl
+         << endl
+         << endl
+         << "Inserted a new node at position: " << pos << endl;
 }
 
 int main()
@@ -91,6 +101,7 @@ int main()
             cin >> pos;
             cout << "Enter Value: ";
             cin >> v;
+            insert_at_position(head,pos,v);
         }
         else if (op == 4)
         {
