@@ -15,16 +15,18 @@ public:
     };
 };
 
-void insert_Node_position(Node *head, int pos, int val){
+void insert_Node_position(Node *head, int pos, int val)
+{
     Node *newNode = new Node(val);
-    Node *tmp=head;
-    for(int i=1;i<=pos-1;i++){
-        tmp=tmp->next;
+    Node *tmp = head;
+    for (int i = 1; i <= pos - 1; i++)
+    {
+        tmp = tmp->next;
     }
-    newNode->next=tmp->next;
-    tmp->next=newNode;
-    newNode->next->prev=newNode;
-    newNode->prev=tmp;
+    newNode->next = tmp->next;
+    tmp->next = newNode;
+    newNode->next->prev = newNode;
+    newNode->prev = tmp;
 }
 
 void print_normal(Node *head)
@@ -35,7 +37,7 @@ void print_normal(Node *head)
         cout << tmp->val << " ";
         tmp = tmp->next;
     }
-    cout<< endl;
+    cout << endl;
 }
 
 void print_reverse(Node *tail)
@@ -46,6 +48,18 @@ void print_reverse(Node *tail)
         cout << tmp->val << " ";
         tmp = tmp->prev;
     }
+}
+
+int node_size(Node *head)
+{
+    Node *tmp = head;
+    int cnt = 0;
+    while (tmp != NULL)
+    {
+        cnt++;
+        tmp = tmp->next;
+    }
+    return cnt;
 }
 
 int main()
@@ -60,11 +74,18 @@ int main()
     a->prev = head;
     a->next = b;
     b->prev = a;
-    b->next=c;
-    c->prev=b;
+    b->next = c;
+    c->prev = b;
 
+    int pos, val;
+    cin >> pos >> val;
 
-    insert_Node_position(head, 2, 100);
+    if(pos>=node_size(head)){
+        cout<< "Invalid position"<<endl;
+    }else{
+        insert_Node_position(head, 2, 100);
+    }
+
     print_normal(head);
     print_reverse(tail);
 
