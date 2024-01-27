@@ -7,5 +7,6 @@
         "random": "cpp",
         "iosfwd": "cpp",
         "*.tcc": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
