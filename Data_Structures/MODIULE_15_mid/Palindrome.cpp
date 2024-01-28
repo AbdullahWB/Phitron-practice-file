@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-using namespace std;\
+using namespace std;
 
 class Node
 {
@@ -58,7 +58,7 @@ int main()
         }
         insert_at_tail(head,tail,val);
     }
-    
+
     if(palindrome(head,tail)){
         cout<<"YES"<<endl;
     }else{
