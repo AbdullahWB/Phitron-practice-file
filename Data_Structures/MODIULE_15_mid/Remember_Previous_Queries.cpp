@@ -8,7 +8,7 @@ void print(const list<int> &MyList){
     }
     cout<<endl;
     cout<<"R -> ";
-    for(auto it=MyList.begin(); it!=MyList.end(); it++){
+    for(auto it=MyList.rbegin(); it!=MyList.rend(); it++){
         cout<<*it<<" ";
     }
     cout<<endl;
