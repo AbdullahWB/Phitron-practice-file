@@ -65,6 +65,11 @@ Node *input_tree()
 
 void level_order(Node *root)
 {
+    if (root == NULL)
+    {
+        cout << "root is NULL" << endl;
+        return ;
+    }
     queue<Node *> q;
     q.push(root);
     while (!q.empty())
@@ -88,6 +93,6 @@ int main()
 {
     Node *root = input_tree();
     level_order(root);
-    
+
     return 0;
 }
