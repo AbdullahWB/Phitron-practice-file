@@ -8,7 +8,7 @@ void insert_heap(vector<int> &v, int x)
     while (current != 0)
     {
         int part = (current - 1) / 2;
-        if (v[current] > v[part])
+        if (v[current] < v[part])
             swap(v[current], v[part]);
         else
             break;
@@ -26,14 +26,14 @@ void delete_heap(vector<int> &v)
         int left_ind = curr * 2 + 1;
         int right_ind = curr * 2 + 2;
         int last_ind = v.size() - 1;
-        if (left_ind <= last_ind && right_ind <= last_ind)
+        if (left_ind >= last_ind && right_ind >= last_ind)
         {
-            if (v[left_ind] >= v[right_ind] && v[left_ind] > v[curr])
+            if (v[left_ind] <= v[right_ind] && v[left_ind] < v[curr])
             {
                 swap(v[left_ind], v[curr]);
                 curr = left_ind;
             }
-            else if (v[right_ind] >= v[left_ind] && v[right_ind] > v[curr])
+            else if (v[right_ind] <= v[left_ind] && v[right_ind] < v[curr])
             {
                 swap(v[right_ind], v[curr]);
                 curr = right_ind;
@@ -45,7 +45,7 @@ void delete_heap(vector<int> &v)
         }
         else if (left_ind <= last_ind)
         {
-            if (v[left_ind] > v[curr])
+            if (v[left_ind] < v[curr])
             {
                 swap(v[left_ind], v[curr]);
                 curr = left_ind;
@@ -57,7 +57,7 @@ void delete_heap(vector<int> &v)
         }
         else if (right_ind <= last_ind)
         {
-            if (v[right_ind] > v[curr])
+            if (v[right_ind] < v[curr])
             {
                 swap(v[right_ind], v[curr]);
                 curr = right_ind;
@@ -92,8 +92,10 @@ int main()
         cin >> x;
         insert_heap(v, x);
     }
-    // delete_heap(v);
     print_heap(v);
+    delete_heap(v);
+    print_heap(v);
+    
 
     return 0;
 }
