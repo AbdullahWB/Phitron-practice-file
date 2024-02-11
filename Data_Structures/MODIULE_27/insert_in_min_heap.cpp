@@ -15,7 +15,7 @@ int main()
         while (current != 0)
         {
             int part = (current - 1) / 2;
-            if (v[current] > v[part])
+            if (v[current] < v[part])
                 swap(v[current], v[part]);
             else
                 break;
