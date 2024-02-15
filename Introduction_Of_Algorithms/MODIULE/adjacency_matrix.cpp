@@ -11,7 +11,7 @@ int main()
         int a,b;
         cin >> a >> b;
         met[a][b]=1;
-        met[b][a]=1;
+        met[b][a]=1; // remove this when this a directed graph
     }
     for (int i = 0; i <= n - 1; i++)
     {
