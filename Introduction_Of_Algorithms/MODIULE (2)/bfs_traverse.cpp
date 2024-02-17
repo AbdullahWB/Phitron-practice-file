@@ -15,7 +15,7 @@ void bfs(int src){
         for(int child:v[par]){
             if(!vis[child]){
                 q.push(child);
-                vis[child]=false;
+                vis[child]=true;
             }
         }
     }
