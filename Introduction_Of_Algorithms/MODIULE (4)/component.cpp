@@ -30,12 +30,15 @@ int main()
         v[b].push_back(a);
     }
     memset(vis, false, sizeof(vis));
+    int c=0;
     for (int i = 0; i < n; i++)
     {
         if (!vis[i])
         {
             dfs(i);
+            c++;
         }
     }
+    cout<<c<<endl;
     return 0;
 }
