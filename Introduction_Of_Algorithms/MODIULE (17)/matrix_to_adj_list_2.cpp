@@ -13,23 +13,24 @@ int main()
             cin >> mat[i][j];
         }
     }
-    vector<int> v[n];
+    vector<pair<int, int>> v[n];
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            if (mat[i][j] == 1) // if i==j is 1 { && i!=j } add this
+            if (mat[i][j] > 0)
             {
-                v[i].push_back(j);
+                v[i].push_back({j, mat[i][j]});
             }
         }
     }
     for (int i = 0; i < n; i++)
     {
-        cout << i << "-->";
-        for (int child : v[i])
+        cout << i << " :-> ";
+        for (pair<int, int> child : v[i])
         {
-            cout << child << " ";
+            cout << "{" << child.first << " --> " << child.second << "}"
+                 << " ";
         }
         cout << endl;
     }
