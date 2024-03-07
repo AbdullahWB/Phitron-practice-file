@@ -10,17 +10,17 @@ int main()
     {
         for (int j = 0; j < n; j++)
         {
-            mat[i][j] = 0;
+            mat[i][j] = -1;
             if (i == j)
-                mat[i][j] = 1;
+                mat[i][j] = 0;
         }
     } 
     while (e--)
     {
-        int a, b;
-        cin >> a >> b;
-        mat[a][b] = 1;
-        mat[b][a] = 1;
+        int a, b,c;
+        cin >> a >> b>>c;
+        mat[a][b] = c;
+        mat[b][a] = c;
     }
     for (int i = 0; i < n; i++)
     {
