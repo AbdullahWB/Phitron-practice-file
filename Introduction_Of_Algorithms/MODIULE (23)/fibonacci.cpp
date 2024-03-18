@@ -1,19 +1,27 @@
 #include <bits/stdc++.h>
+#define ll long long
 using namespace std;
 
-int fibonacci(int n)
+const ll N = 1e6 + 5;
+ll dp[N];
+
+ll fibonacci(ll n)
 {
     if (n == 0 || n == 1)
         return n;
-    int ans = fibonacci(n - 1) + fibonacci(n - 2);
+    if (dp[n] != -1)
+        return dp[n];
+    ll ans = fibonacci(n - 1) + fibonacci(n - 2);
+    dp[n] = ans;
     return ans;
 }
 
 int main()
 {
-    int n;
+    ll n;
     cin >> n;
-    int fibonacciCnt = fibonacci(n);
+    memset(dp, -1, sizeof(dp));
+    ll fibonacciCnt = fibonacci(n);
     cout << fibonacciCnt << endl;
     return 0;
 }
