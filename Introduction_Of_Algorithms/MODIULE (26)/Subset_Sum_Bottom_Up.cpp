@@ -37,9 +37,9 @@ int main()
         cout << "YES" << endl;
     else
         cout << "NO" << endl;
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i <= n; i++)
     {
-        for (int j = 1; j <= s; j++)
+        for (int j = 0; j <= s; j++)
         {
             if (dp[i][j])
                 cout << "T" << " ";
