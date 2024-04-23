@@ -1,0 +1,1 @@
+print("ki obostha python mama")
