@@ -1,2 +1,5 @@
 # Custom Dictionary Words
 dijktra
+Sauda 
+binta
+Bussra
