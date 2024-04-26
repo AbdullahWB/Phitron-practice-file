@@ -1,5 +1,7 @@
 # <, >, <=, >=, ==, !==, 
 
+# in, not, not in, is, is not
+
 # Check if two integers are equal
 x = 10
 y = 10
