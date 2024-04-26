@@ -1,3 +1,9 @@
+num=10
+while num != 0:
+    print(num)
+    num -= 1
+
+
 numB=0
 while numB <= 10:
     numB += 1
@@ -9,6 +15,6 @@ while numB <= 10:
         print("numB is 9")
         break
     if numB == 5:
-        continue
         print("numB is 5")
+        continue
     
