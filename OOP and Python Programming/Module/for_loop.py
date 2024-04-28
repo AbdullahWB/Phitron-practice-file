@@ -26,3 +26,8 @@ for i in range(1,11,1):
 items=['baseball','basketball','football']
 for index, item in enumerate(items):
     print(index, item)
+
+
+
+for i in range(5):
+    print(i)
