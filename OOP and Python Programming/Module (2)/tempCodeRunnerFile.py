@@ -1,10 +1,4 @@
-def sum(num1, num2):
-    return num1 + num2
 
-total = sum(40,11)  
-print(total)
 
-def mul(num1):
-    return num1 * num1
-
-new_total = mul(total)
+numbers =[7,6,5,4,3,2,1]
+print(numbers[-4])
