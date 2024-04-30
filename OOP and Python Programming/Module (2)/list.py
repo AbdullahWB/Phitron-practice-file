@@ -20,3 +20,7 @@ print(numbers[4:])
 print(numbers[4:])
 print(numbers[:])
 print(numbers[::-1])
+
+
+numbers =[7,6,5,4,3,2,1]
+print(numbers[-4])
