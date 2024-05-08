@@ -9,19 +9,21 @@ class Gadget:
         return f'Running laptop: {self.brand}'
     
     
-class Laptop:
-    def __init__(self, memory, ssd) -> None:
+class Laptop(Gadget):
+    def __init__(self, brand, price, color, origin, memory, ssd) -> None:
         self.memory = memory
         self.ssd = ssd
-        
+        super().__init__(brand, price, color, origin)
+ 
     def coding(self):   
         return f'learning programming and coding on laptop!!'
     
 
-class Phone:
-    def __init__(self, dual_sim) -> None:
-       self.dual_sim = dual_sim
-       
+class Phone(Gadget):
+    def __init__(self, brand, price, color, origin, dual_sim) -> None:
+        self.dual_sim = dual_sim
+        super().__init__(brand, price, color, origin)
+
     def phone_call(self, number, text):
         return f'sending ssm to: {number} with text: {text}'
     
@@ -29,12 +31,13 @@ class Phone:
         return f'phone: {self.dual_sim}'
     
 
-class Camera:
-    def __init__(self, pixel) -> None:
+class Camera(Gadget):
+    def __init__(self, brand, price, color, origin, pixel) -> None:
         self.pixel = pixel
+        super().__init__(brand, price, color, origin)
         
     def change_lens(self):
-        pass
+        pass 
     
 
 #inheritance ->
