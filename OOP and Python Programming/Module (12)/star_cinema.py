@@ -47,7 +47,7 @@ class Hall(Star_Cinema):
     
 
 
-pagla_hall = Hall(5, 5, "H1")
+""" pagla_hall = Hall(5, 5, "H1")
 
 pagla_hall.entry_show("S1", "den the day", "01:00")
 pagla_hall.entry_show("S2", "rajkumer", "02:00")
@@ -78,3 +78,4 @@ pagla_hall.view_available_seats("S2")
 pagla_hall.view_available_seats("S3")
 pagla_hall.view_available_seats("S4")
 pagla_hall.view_available_seats("S5")
+ """
