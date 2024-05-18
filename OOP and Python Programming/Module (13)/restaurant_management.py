@@ -14,15 +14,17 @@ class User(ABC):
 class Customer(User):
     def __init__(self, name, email, phone, address) -> None:
         super().__init__(name, email, phone, address)
-        self.cart = None
+        self.cart = Order()
 
     def view_menu(self, restaurant):
         restaurant.menu.show_menu()
 
-    def add_to_cart(self, restaurant, item_name):
+    def add_to_cart(self, restaurant, item_name, quantity):
         item = restaurant.menu.find_item(item_name)
         if item:
-            pass
+            item.quantity = quantity
+            self.cart.add_item(item)
+            print("Item added to cart")
         else:
             print("Item not found")
 
@@ -84,7 +86,7 @@ class Restaurant:
     def __init__(self, name) -> None:
         self.name = name
         self.employee = []  # this out data management
-        self.menu = FoodItem()
+        self.menu = Menu()
 
     def add_employee(self, employee):
         self.employee.append(employee)
@@ -129,3 +131,19 @@ class FoodItem:
         self.price = price
         self.quantity = quantity
         super().__init__()
+
+
+new_muslim_house= Restaurant("New Muslim Restaurant")
+
+mn=Menu()
+item=FoodItem("pizza", 12.45, 10)
+item2=FoodItem("burgur", 10, 30)
+admin=Admin('mohammad', 'mohammad@gmail.com', 1234567890, 'chipa tolie, china')
+admin.add_new_item(new_muslim_house,item)
+admin.add_new_item(new_muslim_house,item2)
+
+new_muslim_house.menu.show_menu()
+
+customer_one=Customer('Mohammad Abdullah' ,'abdullah917828@gmail.com', '01632917828', 'nanchong, china')
+customer_one_heart=Customer('sauda binta busra' ,'sauda@gmail.com', 1632917828, 'beijing, china')
+customer_one.view_menu(new_muslim_house)
