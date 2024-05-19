@@ -1,5 +1,5 @@
 from abc import *
-
+from order import Order
 
 # make user abstract class to use other classes instead of abstract
 class User(ABC):
@@ -37,6 +37,10 @@ class Customer(User):
         for item, quantity in self.cart.items.items():
             print(f"{item.name} {item.price} {quantity}")
         print(f"Total Price: {self.cart.total_price}")
+        
+    def pay_bill(self):
+        print(f"Total Bill: {self.cart.total_bill} paid successfully")
+        self.cart.clear()
 
 class Employee(User):
     def __init__(self, name, email, phone, address, age, designation, salary) -> None:
@@ -61,9 +65,13 @@ class Admin(User):
 
     def remove_item(self, restaurant, item):
         restaurant.menu.remove_item(item)
+        
+    def view_menu(self, restaurant):
+        restaurant.menu.show_menu()
 
 
 
+""" 
 new_muslim_house= Restaurant("New Muslim Restaurant")
 
 mn=Menu()
@@ -83,4 +91,5 @@ item_name = input("Enter item name: ")
 item_quantity = int(input("Enter Item quantity: "))
 
 customer_one.add_to_cart(new_muslim_house ,item_name, item_quantity)
-customer_one.view_cart()
+customer_one.view_cart() 
+"""
