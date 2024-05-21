@@ -2,19 +2,16 @@ class School:
     def __init__(self, name, address) -> None:
         self.name = name
         self.address = address
-        self.teacher = (
-            {}
-        )  # as a dictionary format {"subject": "teacher name or others"}
-        self.classroom = {}  # as a dictionary format {"class nine": "classroom object"}
+        self.teachers = {} # as a dictionary format {"subject": "teacher name or others"}
+        self.classrooms = {}  # as a dictionary format {"class nine": "classroom object"}
 
     def add_classroom(self, classroom):
-        self.classroom[classroom.name] = classroom
-
+        self.classrooms[classroom.name] = classroom
     def add_teacher(self, subject, teacher):
-        self.teacher[subject] = teacher
-
+        self.teachers[subject] =  teacher
     def student_admission(self, student):
-        pass
+        classname = student.classroom.name
+        self.classrooms[classname].add_student(student)
 
     @staticmethod
     def calculate_grade(marks):
@@ -67,8 +64,28 @@ class School:
     
     def __repr__(self) -> str:
         # All class room 
+        for key in self.classrooms.keys():
+            print(key)
         # all student
+        print("All Student")
+        result = ''
+        for key,value in self.classrooms.items():
+            result += f'----{key.upper()} classroom students\n'
+            for student in value.students:
+                result += f"{student.name}\n"
+        print(result)
         # all subject
+        subject = ''
+        for key,value in self.classrooms.items():
+            subject += f'----{key.upper()} classroom subjects\n'
+            for sub in value.subjects:
+                subject += f"{sub.name}\n"
+        print(subject)
         # all teacher
         # all Student result
-        pass
+        print("student result")
+        for key,value in self.classrooms.items():
+            for student in value.students:
+                for k,i in student.marks.items():
+                    print(student.name,k,i,student.subject_grade[k])
+                print(student.calculate_final_grade)
