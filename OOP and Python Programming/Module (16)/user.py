@@ -1,4 +1,5 @@
 from abc import *
+from ride import *
 
 class User(ABC):
     def __init__(self, name, email, nid) -> None:
@@ -32,8 +33,12 @@ class Rider(User):
     def update_location(self, current_location):
         self.current_location = current_location
         
-    def request_ride(self, ride_shearing, destination):
-        pass
+    def request_ride(self, ride_shearing, destination, vehicle_type):
+        ride_request = RideRequest(self, destination)
+        ride_matching = RideMatching(ride_shearing.divers)
+        ride = ride_matching.find_driver(ride_request, vehicle_type)
+        self.current_ride = ride
+        print("YAH!! We got a ride")        
     
     def show_current_ride(self):
         print(self.current_ride)
@@ -49,5 +54,5 @@ class Driver(User):
         print(f"Driver: {self.name} and email {self.email}")
         
     def accept_ride(self, ride):
-        pass
+        ride.set_driver(self)
     
