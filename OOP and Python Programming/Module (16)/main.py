@@ -8,5 +8,8 @@ uthiye_naw.add_rider(sauda)
 
 abdullah = Driver("Mohammad Abdullah", "abdullah917828@gmail.com", 105963, "shantiogor")
 uthiye_naw.add_driver(abdullah)
+sauda.request_ride(uthiye_naw, "moner majhe", "car")
+sauda.show_current_ride()
+abdullah.reach_destination(sauda.current_ride)
 
 print(uthiye_naw)

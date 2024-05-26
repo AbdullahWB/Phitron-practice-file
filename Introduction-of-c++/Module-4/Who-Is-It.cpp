@@ -38,3 +38,15 @@ int main()
 
     return 0;
 }
+
+
+// 3
+// 1 sakib A 50
+// 2 rakib D 96
+// 3 akib C 90
+// 1 sakib A 50
+// 2 rakib D 96
+// 3 akib C 96
+// 1 sakib A 50
+// 2 rakib D 50
+// 3 akib C 40
