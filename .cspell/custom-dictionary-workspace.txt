@@ -3,3 +3,5 @@ dijktra
 Sauda 
 binta
 Bussra
+li
+ul

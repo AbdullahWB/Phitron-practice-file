@@ -1,0 +1,114 @@
+/* root */
+
+:root {
+  --primary-font: "Roboto", sans-serif;
+  --secondary-font: "Open Sans", sans-serif;
+}
+
+/* root */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+body {
+  background: #1a1a1a;
+}
+
+/* nav */
+
+nav {
+  padding-bottom: 50px;
+}
+
+nav .navbar-brand img {
+  width: 125px;
+  height: 125px;
+}
+
+nav ul .nav-item .nav-link {
+  color: #f1f1f1 !important;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: var(--primary-font);
+}
+
+.btn a {
+  display: flex;
+  width: 110px;
+  height: 38px;
+  justify-content: space-between;
+  line-height: 25px;
+  background: #0dcaf0;
+  color: #f1f1f1;
+  padding: 7px 13px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-family: var(--primary-font);
+}
+
+/* nav */
+
+/* banner */
+
+#banner .description h1 {
+  color: #0ff;
+  font-family: var(--primary-font);
+  font-size: 70.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 78px;
+}
+
+#banner .description>p {
+  color: #fff;
+  font-family: var(--secondary-font);
+  font-size: 23.6px;
+  font-style: normal;
+  font-weight: 500;
+  /* line-height: 24px; */
+  margin-bottom: 70px;
+}
+
+#banner .description span {
+  color: #fff;
+  font-family: var(--secondary-font);
+  font-size: 19.4px;
+  font-style: normal;
+  font-weight: 400;
+  /* line-height: 24px; */
+}
+
+#banner .description ul li{
+    margin: 10px 52px;
+}
+#banner .description ul li:first-child{
+    margin-left: 21px;
+}
+
+#banner .description ul li a{
+    color: #0ff;
+    font-size: 32px;
+}
+#banner .description ul li:last-child a{
+    font-size: 18px;
+    color: #f1f1f1;
+}
+
+/* banner */
