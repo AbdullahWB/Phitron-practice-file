@@ -176,6 +176,10 @@ header h1 {
 
 /* education */
 
+#education{
+    padding: 50px;
+}
+
 #education .education-bg .skill .items h2 {
   color: #fff;
   font-family: var(--primary-font);
@@ -238,31 +242,69 @@ header h1 {
 
 /* contact */
 
-#contact form{
+#contact{
+    padding: 50px;
+}
+
+#contact form {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 5px 5px rgb(204, 201, 201);
+  border: 2px solid #fff;
+  padding: 40px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+#contact form input,
+textarea {
+  width: 250px;
+  /*height: 24px;
+    */
+  padding: 10px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: 2px solid gray;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+/* contact */
+
+/* footer */
+
+#footer{
+    padding:  100px;
+    border-top: 1px solid gray;
+}
+
+#footer .footer_item{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 10px 5px 5px rgb(204, 201, 201);
-    border: 2px solid #fff;
-    padding: 40px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
 }
 
-#contact form input,textarea{
-    width: 250px;
-    /*height: 24px;
-    */padding: 10px;
-    margin-bottom: 20px;
-    background: transparent;
-    border: 2px solid gray;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+#footer p {
+  color: #fff;
+  font-family: var(--primary-font);
+  font-size: 19.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 17px;
 }
-/* contact */
+
+#footer ul li a {
+    color: #0ff;
+    font-size: 32px;
+    margin: 17px 20px;
+}
+
+/* footer */
