@@ -28,6 +28,10 @@ body {
   background: #1a1a1a;
 }
 
+.container{
+    width: 972px;
+}
+
 /* nav */
 
 nav {
@@ -76,7 +80,7 @@ nav ul .nav-item .nav-link {
   line-height: 78px;
 }
 
-#banner .description>p {
+#banner .description > p {
   color: #fff;
   font-family: var(--secondary-font);
   font-size: 23.6px;
@@ -95,20 +99,77 @@ nav ul .nav-item .nav-link {
   /* line-height: 24px; */
 }
 
-#banner .description ul li{
-    margin: 10px 52px;
+#banner .description ul li {
+  margin: 10px 52px;
 }
-#banner .description ul li:first-child{
-    margin-left: 21px;
+#banner .description ul li:first-child {
+  margin-left: 21px;
 }
 
-#banner .description ul li a{
-    color: #0ff;
-    font-size: 32px;
+#banner .description ul li a {
+  color: #0ff;
+  font-size: 32px;
 }
-#banner .description ul li:last-child a{
-    font-size: 18px;
-    color: #f1f1f1;
+#banner .description ul li:last-child a {
+  font-size: 18px;
+  color: #f1f1f1;
 }
 
 /* banner */
+
+/* portfolio */
+header h1 {
+  text-align: center;
+  color: #fff;
+  font-family: var(--primary-font);
+  font-size: 48.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 54px;
+  margin-bottom: 50px;
+}
+
+#portfolio .item {
+    padding: 30px;
+    border: 2px solid #fff;
+    margin-bottom: 30px;
+}
+
+#portfolio .item .image img {
+  width: 461px;
+  height: 288px;
+  margin-right: 20px;
+}
+
+#portfolio .item .text h1 {
+  color: #0ff;
+  font-family: var(--primary-font);
+  font-size: 29.8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+}
+
+#portfolio .item .text p {
+  color: #fff;
+  font-family: var(--secondary-font);
+  font-size: 19.4px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 123.711% */
+}
+
+#portfolio .item .text ul li {
+  color: #fff;
+  font-family: var(--secondary-font);
+  font-size: 18.6px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  border-radius: 5px;
+  background: #6c757d;
+  padding: 5px;
+  margin: 0 5px;
+}
+
+/* portfolio */
