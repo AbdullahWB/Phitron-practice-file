@@ -28,8 +28,8 @@ body {
   background: #1a1a1a;
 }
 
-.container{
-    width: 972px;
+.container {
+  width: 1080px;
 }
 
 /* nav */
@@ -130,9 +130,9 @@ header h1 {
 }
 
 #portfolio .item {
-    padding: 30px;
-    border: 2px solid #fff;
-    margin-bottom: 30px;
+  padding: 30px;
+  border: 2px solid #fff;
+  margin-bottom: 30px;
 }
 
 #portfolio .item .image img {
@@ -173,3 +173,65 @@ header h1 {
 }
 
 /* portfolio */
+
+/* education */
+
+#education .education-bg .skill .items h2 {
+  color: #fff;
+  font-family: var(--primary-font);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 33.6px;
+  text-transform: capitalize;
+}
+
+#education .education-bg .skill .items ul li {
+  color: #fff;
+  font-family: var(--secondary-font);
+  font-size: 18.6px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  border-radius: 5px;
+  background: #6c757d;
+  padding: 5px;
+  margin: 20px 5px;
+}
+
+#education .education-bg .self {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#education .education-bg .self h1 {
+  color: #0ff;
+  font-family: var(--primary-font);
+  font-size: 48.7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 54px;
+}
+
+#education .education-bg .self p {
+  color: #fff;
+  font-family: var(--secondary-font);
+  font-size: 23.6px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+
+#education .education-bg .self span {
+  color: #fff;
+  font-family: var(--secondary-font);
+  font-size: 17.2px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+/* education */
