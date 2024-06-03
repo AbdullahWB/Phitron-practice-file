@@ -85,5 +85,10 @@
             "addWords": true,
             "scope": "workspace"
         }
+    },
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
     }
 }
