@@ -1,18 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random player</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    
-    
-
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Player</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100">
+    <nav class="bg-gradient-to-r from-blue-500 to-purple-500 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-white text-xl font-bold">Player Search</a>
+        <ul class="flex space-x-4 text-white">
+          <li><a href="#" class="hover:underline">Home</a></li>
+          <li><a href="#" class="hover:underline">About</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <header class="bg-gradient-to-r from-blue-500 to-purple-500 p-6 mb-10">
+      <h1 class="text-center text-4xl font-bold text-white">Search Player</h1>
+    </header>
+    <main class="container mx-auto">
+      <section>
+        <div class="flex justify-center mb-8">
+          <div class="flex items-center space-x-2">
+            <input
+              id="search-field"
+              class="input input-bordered p-2 rounded-l-lg border border-gray-300"
+              placeholder="Enter player name"
+              type="text"
+            />
+            <button
+              id="click-btn"
+              class="btn bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="grid lg:grid-cols-4 grid-cols-1 gap-5">
+        <div class="col-span-3 bg-white shadow-lg p-6 rounded-lg">
+          <h2 class="text-2xl font-semibold mb-4">Players</h2>
+          <div
+            id="card-container"
+            class="grid lg:grid-cols-3 grid-cols-1 gap-5"
+          ></div>
+          <dialog id="my_modal_3" class="modal">
+            <div class="modal-box">
+              <form method="dialog">
+                <button
+                  class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                >
+                  ✕
+                </button>
+              </form>
+              <div id="modal-content"></div>
+            </div>
+          </dialog>
+          <dialog id="warning_modal" class="modal">
+            <div class="modal-box">
+              <form method="dialog">
+                <button
+                  class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                >
+                  ✕
+                </button>
+              </form>
+              <h3 class="font-bold text-lg">Warning!</h3>
+              <p class="py-4">You can't add more than 11 players.</p>
+            </div>
+          </dialog>
+          <div id="no-player" class="hidden text-center">
+            <h3 class="mt-5">No player found</h3>
+          </div>
+          <div id="show-all" class="text-center hidden">
+            <button id="btn-showAll" class="btn btn-primary">Show All</button>
+          </div>
+        </div>
+        <div class="col-span-1 bg-white shadow-lg p-6 rounded-lg">
+          <h2 class="text-2xl font-semibold mb-4">
+            Total Players: <span id="total-player-count">0</span>
+          </h2>
+          <ul id="total-players-list" class="list-disc list-inside"></ul>
+        </div>
+      </section>
+      <section
+        id="loader"
+        class="hidden justify-center items-center w-full h-full"
+      >
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-gradient-to-r from-blue-500 to-purple-500 p-4 mt-10">
+      <div class="container mx-auto text-center text-white">
+        <p>&copy; 2024 Player Search. All rights reserved.</p>
+      </div>
+    </footer>
     <!-- JS -->
-     <script src="./js/app.js"></script>
-    <!-- JS -->
-    
-</body>
+    <script src="js/app.js"></script>
+  </body>
 </html>
