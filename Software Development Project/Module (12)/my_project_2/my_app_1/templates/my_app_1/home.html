@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is home page</h1>
+    <h2>Name: {{name}}</h2>
+    <h2>Age: {{age}}</h2>
+    <h2>Email: {{email}}</h2>
+    <h2>Phone: {{phone}}</h2>
+    
+    {% comment %} if elif & endif {% endcomment %}
+
+    {% if age >= 22 %}
+        <h3>you are adult and you can marrie sauda</h3>
+    {% elif age >= 19 %}
+        <h3>you are not adult you just in realtionship</h3>
+    {% else %}
+        <h3>porte boy realtionship er ma baba</h3>
+    {% endif %}
+
+
+    {% comment %} for loop {% endcomment %}
+    
+    {% for i in course %}
+        <h3>{{i.id}}</h3>
+        <h3>{{i.name}}</h3>
+        <h3>{{i.price}}</h3>
+        <h3>{{i.discount}}</h3>
+    {% endfor %}
+        
+
+</body>
+</html>
