@@ -11,6 +11,7 @@ def home(request):
         "address": "Dhaka, Bangladesh",
         "website": "https://www.google.com",
         "facebook": "https://www.facebook.com",
+        "list": ["python", "is", "best"],
         "course": [
             {
                 "id": 1,

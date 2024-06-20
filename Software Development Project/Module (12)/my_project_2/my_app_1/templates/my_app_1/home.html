@@ -23,6 +23,9 @@
     {% endif %}
 
 
+    <p>{{list}}</p>
+    <h3>{{ list | join:" - " }}</h3>
+
     {% comment %} for loop {% endcomment %}
     
     {% for i in course %}
