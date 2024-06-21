@@ -609,6 +609,6 @@ def index(request):
     return render(request, "my_app_1/index.html", {"data": data})
 
 
-def about(request):
-    print(request.GET)
-    return render(request, "my_app_1/index.html", {"id": request.GET})
+# def about(request):
+#     print(request.GET)
+#     return render(request, "my_app_1/index.html", {"id": request.GET})
