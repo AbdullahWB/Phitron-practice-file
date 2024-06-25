@@ -34,13 +34,13 @@
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="{% url 'home' %}"
+                href="{% url 'homePage' %}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">about</a>
-              <a class="nav-link" href="">about</a>
+              <a class="nav-link" href="{% url 'aboutPage' %}">about</a>
+              {% comment %} <a class="nav-link" href="">about</a> {% endcomment %}
             </li>
             <li class="nav-item dropdown">
               <a
@@ -79,13 +79,10 @@
         </div>
       </div>
     </nav>
-    {% comment %} <h1>this is home page</h1>
+    {% comment %}
+    <h1>this is home page</h1>
     <img src="{% static 'img1.jpg' %}" alt="My Image" /> {% endcomment %}
-
-    
-    {% block contant %}
-    {% endblock %}
-        
+    {%block contant %} {% endblock %}
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
