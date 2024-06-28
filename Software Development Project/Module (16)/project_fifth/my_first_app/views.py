@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import contactForm
 
 
 # Create your views here.
@@ -23,3 +24,12 @@ def about(request):
 
 def submit_from(request):
     return render(request, "./my_first_app/form.html")
+
+
+def DjangoFrom(request):
+    form = contactForm(request.POST)
+    if form.is_valid():
+        print(form.cleaned_data)
+        render(request, "./my_first_app/django_form.html", {"form": form})
+
+    return render(request, "./my_first_app/django_form.html", {"form": form})
