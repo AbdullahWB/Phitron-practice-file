@@ -50,3 +50,14 @@ def StudentForm(request):
     else:
         form = StudentData()
     return render(request, "./my_first_app/django_form.html", {"form": form})
+
+
+def passwordValidation(request):
+    if request.method == "POST":
+        form = PasswordValidationProject(request.POST, request.FILES)
+        if form.is_valid():
+            print(form.cleaned_data)
+        # If the form is invalid, it should just fall through and render with errors
+    else:
+        form = PasswordValidationProject()
+    return render(request, "./my_first_app/django_form.html", {"form": form})
