@@ -12,10 +12,14 @@
     <title>Document</title>
   </head>
   <body>
+    {% load crispy_forms_tags %}
     <h1>hello world | from app</h1>
 
-    <div>
-        {{form.as_p}}
+    <div style="width: 80%; margin: auto">
+      <form method="post">
+        {% csrf_token %} {{form | crispy}}
+        <input type="submit" class="btn btn-primary" value="submit" />
+      </form>
     </div>
 
     <script

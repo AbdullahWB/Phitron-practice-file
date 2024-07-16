@@ -9,7 +9,7 @@ class StudentForms(forms.ModelForm):
             'name': 'Full Name',
         }
         widgets = {
-            'roll' : forms.PasswordInput()
+            'roll' : forms.NumberInput()
         }
         help_texts = {
             'name': 'Student Name',
