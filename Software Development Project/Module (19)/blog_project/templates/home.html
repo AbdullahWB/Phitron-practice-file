@@ -1,24 +1,21 @@
 {% extends 'base.html' %} {% block content %}
 <div class="row">
   <div class="col-sm-6 mb-3 mb-sm-0">
-   
-   {% for post in data %}
-   <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">{{post.title}}</h5>
-      <p class="card-text">
-       {{post.content}}
-      </p>
-      <small>Author: {{post.author.name}}</small>
-      
-      {% for item in post.category.all %}
-        <p>{{item.name}}</p>
-      {% endfor %}
-        
+    {% for post in data %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.content}}</p>
+        <p>Author: {{post.author.name}}</p>
+
+        {% for item in post.category.all %}
+        <small class="bg-warning p-2">{{item.name}}</small>
+        {% endfor %}
+        <a href='{% url "delete_posts" post.id %}' class="btn btn-danger">Delete</a>
+        <a href='{% url "edit_posts" post.id %}' class="btn btn-primary">Edit</a>
+      </div>
     </div>
-  </div>
-   {% endfor %}
-    
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
