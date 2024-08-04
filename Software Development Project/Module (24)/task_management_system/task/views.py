@@ -30,12 +30,10 @@ def edit_task(request, task_id):
         form = TaskForm(instance=task)
     return render(request, "task/edit_task.html", {"form": form})
 
-
 def delete_task(request, task_id):
     task = TaskModel.objects.get(id=task_id)
     task.delete()
     return redirect("show_tasks")
-
 
 def complete_task(request, task_id):
     task = TaskModel.objects.get(id=task_id)

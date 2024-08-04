@@ -16,12 +16,13 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import add_task, show_tasks, edit_task, delete_task, complete_task
+from .views import add_task, show_tasks
+from . import views
 
 urlpatterns = [
     path("add/", add_task, name="add_task"),
     path("", show_tasks, name="show_tasks"),
-    path("edit/<int:pk>/", edit_task, name="edit_task"),
-    path("delete/<int:pk>/", delete_task, name="delete_task"),
-    path("complete/<int:pk>/", complete_task, name="complete_task"),
+    path("edit/<int:task_id>/", views.edit_task, name="edit_task"),
+    path("delete/<int:task_id>/", views.delete_task, name="delete_task"),
+    path("complete/<int:task_id>/", views.complete_task, name="complete_task"),
 ]
