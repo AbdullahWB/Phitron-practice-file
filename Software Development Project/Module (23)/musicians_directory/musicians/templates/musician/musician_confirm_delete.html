@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete Musician</title>
-  </head>
-  <body>
-    <h1>
-      Are you sure you want to delete {{ musician.first_name }} {{
-      musician.last_name }}?
-    </h1>
-    <form method="post">
-      {% csrf_token %}
-      <button type="submit">Yes</button>
-    </form>
-    <a href="{% url 'musician_list' %}">No</a>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Delete Musician{% endblock %}
+
+{% block content %}
+<h1>Are you sure you want to delete {{ musician.first_name }} {{ musician.last_name }}?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a href="{% url 'musician_list' %}" class="btn btn-secondary">No</a>
+</form>
+{% endblock %}

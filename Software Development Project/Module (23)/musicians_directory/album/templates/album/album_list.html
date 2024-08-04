@@ -1,39 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Album List</title>
-  </head>
-  <body>
-    <h1>Albums</h1>
-    <table>
-      <thead>
+{% extends 'base.html' %}
+
+{% block title %}Album List{% endblock %}
+
+{% block content %}
+<h1>Albums</h1>
+<table class="table table-striped">
+    <thead>
         <tr>
-          <th>ID</th>
-          <th>Album Name</th>
-          <th>Musician</th>
-          <th>Release Date</th>
-          <th>Rating</th>
-          <th>Actions</th>
+            <th>ID</th>
+            <th>Album Name</th>
+            <th>Musician</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+            <th>Actions</th>
         </tr>
-      </thead>
-      <tbody>
+    </thead>
+    <tbody>
         {% for album in albums %}
         <tr>
-          <td>{{ album.id }}</td>
-          <td>{{ album.album_name }}</td>
-          <td>{{ album.musician }}</td>
-          <td>{{ album.release_date }}</td>
-          <td>{{ album.rating }}</td>
-          <td>
-            <a href="{% url 'album_update' album.id %}">Edit</a>
-            <a href="{% url 'album_delete' album.id %}">Delete</a>
-          </td>
+            <td>{{ album.id }}</td>
+            <td>{{ album.album_name }}</td>
+            <td>{{ album.musician }}</td>
+            <td>{{ album.release_date }}</td>
+            <td>{{ album.rating }}</td>
+            <td>
+                <a href="{% url 'album_update' album.id %}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="{% url 'album_delete' album.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
         </tr>
         {% endfor %}
-      </tbody>
-    </table>
-    <a href="{% url 'album_create' %}">Add Album</a>
-  </body>
-</html>
+    </tbody>
+</table>
+<a href="{% url 'album_create' %}" class="btn btn-success">Add Album</a>
+{% endblock %}
