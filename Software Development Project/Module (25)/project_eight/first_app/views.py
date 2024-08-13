@@ -21,7 +21,7 @@ def signup(request):
     return render(request, "./signup.html", {'form': form})
  
 
-def login(request):
+def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)
         if form.is_valid():
@@ -30,11 +30,11 @@ def login(request):
             user = authenticate(username = name, password = password) #check if user already exists
             if user is not None:
                 login(request, user)
-                redirect('profile')
+                return redirect('profile')
     else:
         form = AuthenticationForm()
         return render(request, "./login.html", {'form': form})
     
     
 def profile(request):
-    return render(request, "./profile.html")        
+    return render(request, "./profile.html", {'user': request.user})        
