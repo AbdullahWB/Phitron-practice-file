@@ -1,6 +1,33 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block body %}
     <h1>Welcome to profile page</h1>
     <h2>Hello <b>{{user.first_name}} {{user.last_name}}</b></h2>
+
+    <p><a href="{% url 'pass_change' %}">pass change</a></p>
+    <p><a href="{% url 'pass_change2' %}">pass change without old pass</a></p>
+
+    <form method="post" style="width: 50%; margin: auto" novalidate>
+        <h1>change prfile Page</h1>
+        {% csrf_token %}
+        
+        {% if form.non_field_errors %}
+            
+            {% for er in form.non_field_errors %}
+                <small class="badge text-bg-warning">{{er}}</small>
+            {% endfor %}
+                
+        {% endif %}
+            <br>
+            <br>
+        <!-- {{form | crispy }} -->
+        {% for fm in form %} 
+        {{fm.label_tag}} 
+        {{fm}} 
+        {{fm.errors|striptags}} 
+        {% endfor %}
+        <br />
+        <button class="btn btn-warning" type="submit">change</button>
+    </form>
 {% endblock %}
