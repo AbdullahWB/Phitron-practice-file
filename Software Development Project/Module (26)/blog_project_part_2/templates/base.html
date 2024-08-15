@@ -33,7 +33,7 @@
               <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'add_author' %}">Add Author</a>
+              <a class="nav-link" href="{% url 'register' %}">Add Author</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'add_categories' %}">Add Category</a>
@@ -68,20 +68,35 @@
             </li>
           </ul>
           <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="btn btn-info mx-3" href="{% url 'register' %}">register</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-warning" href="{% url 'user_login' %}">login</a>
+              </li>
+            </ul>
           </form>
         </div>
       </div>
     </nav>
     {% comment %} nave end {% endcomment %}
+
+    
+    {% for m in messages %}
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">message</strong>
+        <small>gorom gorom meessage</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <h3 class="text-{{m.tags}}" >{{m}}</h3>
+      </div>
+    </div>
+    {% endfor %}
+      
 
     <!-- block control -->
 
