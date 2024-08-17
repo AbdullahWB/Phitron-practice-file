@@ -22,7 +22,7 @@ def register(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'your account successfully registered')
-            return redirect('home')
+            return redirect('register')
     else:
         form = forms.RegistrationForm()
     return render(request, 'author/register.html', {'form': form, 'type': 'Registration'})
@@ -31,16 +31,16 @@ def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
-            user_name = form.cleaned_data['user_name']
+            user_name = form.cleaned_data['username']
             user_pass = form.cleaned_data['password']
             user = authenticate(username=user_name, password=user_pass)
             if user is not None:
-                login(request, user)
                 messages.success(request, 'your account successfully log in')
-                return redirect('profile')
+                login(request, user)
+                return redirect('user_login')
             else:
                 messages.warning(request, 'log in information is not available')
                 return redirect('register')
     else:
         form = AuthenticationForm()
-        return render(request, 'author/register.html', {'form': form, 'type':'Login'})
+    return render(request, 'author/register.html', {'form': form, 'type':'Login'}) #12
