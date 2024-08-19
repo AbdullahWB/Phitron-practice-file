@@ -61,7 +61,7 @@ def profile(request):
 
 def pass_change(request):
     if request.method == 'POST':
-        form = PasswordChangeForm(request.POST, request.user)
+        form = PasswordChangeForm(request.user, data=request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'password updated successfully')
