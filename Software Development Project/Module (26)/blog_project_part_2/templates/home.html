@@ -6,13 +6,11 @@
       <div class="card-body">
         <h5 class="card-title">{{post.title}}</h5>
         <p class="card-text">{{post.content}}</p>
-        <p>Author: {{post.author.name}}</p>
+        <p>Author: {{post.author.first_name}} {{post.author.last_name}}</p>
 
         {% for item in post.category.all %}
         <small class="bg-warning p-2">{{item.name}}</small>
         {% endfor %}
-        <a href='{% url "delete_posts" post.id %}' class="btn btn-danger">Delete</a>
-        <a href='{% url "edit_posts" post.id %}' class="btn btn-primary">Edit</a>
       </div>
     </div>
     {% endfor %}

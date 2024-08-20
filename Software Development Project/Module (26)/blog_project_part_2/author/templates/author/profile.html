@@ -1,8 +1,31 @@
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
-<form method='post' style="width: 50%; margin: auto">
-  <h1>{{type}} Page</h1>
-  {% csrf_token %} {{form | crispy}}
-  <button class="btn btn-warning">update</button>
-  <a class="btn btn-warning btn-sm" href="{% url 'pass_change' %}">change password</a>
-</form>
+<div>
+  <a class="btn btn-primary" href="{% url 'edit_profile' %}"
+    >Edit your Profile</a
+  >
+
+  <div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      {% for post in data %}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content}}</p>
+          <p>Author: {{post.author}}</p>
+
+          {% for item in post.category.all %}
+          <small class="bg-warning p-2">{{item.name}}</small>
+          {% endfor %}
+          <a href='{% url "delete_posts" post.id %}' class="btn btn-danger"
+            >Delete</a
+          >
+          <a href='{% url "edit_posts" post.id %}' class="btn btn-primary"
+            >Edit</a
+          >
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}

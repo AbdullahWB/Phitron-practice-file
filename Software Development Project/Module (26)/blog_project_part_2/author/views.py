@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from posts.models import Post
 
 # Create your views here.
 
@@ -48,6 +49,12 @@ def user_login(request):
 
 @login_required
 def profile(request):
+    data = Post.objects.filter(author = request.user)
+    return render(request, 'author/profile.html' , {'data': data}) 
+
+
+@login_required
+def edit_profile(request):
     if request.method == 'POST':
         form = forms.ChangeUserData(request.POST, instance = request.user)
         if form.is_valid():
@@ -56,7 +63,7 @@ def profile(request):
             return redirect('profile')
     else:
         form = forms.ChangeUserData(instance = request.user)
-    return render(request, 'author/profile.html', {'form': form}) 
+    return render(request, 'author/update_profile.html', {'form': form}) 
 
 
 def pass_change(request):
