@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="d-flex flex-wrap">
+  <div class="col-6">
+    <h1>wlcome to django</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus doloribus alias consequatur eos facilis sint iste similique quas quibusdam esse animi amet ea consequuntur, beatae nisi accusantium, unde illo nemo suscipit ex voluptatibus, corporis in non. Quae repellat maxime, tenetur dolorem veniam quod facere consequuntur ea nisi eos amet recusandae cupiditate alias sapiente possimus officia dolorum deserunt, esse, libero pariatur rerum velit. In aperiam, ex molestias exercitationem aliquid dolores unde debitis aliquam fugiat. Fuga harum, facilis asperiores repellat voluptatum nihil eligendi accusamus illum culpa non! Quas exercitationem illo eos distinctio ullam in officia dolor, sapiente nesciunt numquam! Quos, sunt iusto.</p>
+  </div>
+  <div class="col-6">
+    <img src="{% static 'OIP.jpeg' %}" alt="">
+  </div>
+</div>
+
+<div style="" class="mt-5">
+  <div class="d-flex flex-wrap m-5">
+    <div class="col-2" style="background-color: #ffff;">
+      {% for cat in category %}
+
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="category"
+          id="{{cat.id}}"
+        />
+        <label class="form-check-label" for="{{cat.id}}">
+          <a href="{% url 'category_post' cat.slug %}">{{cat.name}}</a>
+        </label>
+      </div>
+
+      {% endfor %}
+    </div>
+    <div class="col-1"></div>
+    <div class="col-9 p-5" style="background-color: tomato;">
+      <h3>{{ data | length }} Result Foun</h3>
+      <div class="row">
+        <div class=" mb-3 mb-sm-0">
+          {% for post in data %}
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.content}}</p>
+              <p>
+                Author: {{post.author.first_name}} {{post.author.last_name}}
+              </p>
+
+              {% for item in post.category.all %}
+              <small class="bg-warning p-2">{{item.name}}</small>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
