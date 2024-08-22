@@ -1,7 +1,11 @@
+from django.forms import BaseModelForm
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from . import forms, models
 from posts.models import Post
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -17,6 +21,18 @@ def add_posts(request):
     else:
         posts_form = forms.PostsFrom()
     return render(request, 'posts/index.html', {'form': posts_form})
+
+
+#add post using class based views
+class AddPostCreateView(CreateView):
+    model = models.Post
+    form_class = forms.PostsFrom
+    template_name = 'posts/index.html'
+    success_url = reverse_lazy('add_posts')
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+        
 
 
 @login_required
