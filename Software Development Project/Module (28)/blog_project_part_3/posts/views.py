@@ -6,9 +6,12 @@ from posts.models import Post
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
+from django.views.generic import UpdateView
+from django.views.generic import DeleteView
+from django.utils.decorators import method_decorator
 
 # Create your views here.
-
+""" 
 @login_required
 def add_posts(request):
     if request.method == 'POST':
@@ -20,10 +23,11 @@ def add_posts(request):
             return redirect('add_posts')
     else:
         posts_form = forms.PostsFrom()
-    return render(request, 'posts/index.html', {'form': posts_form})
+    return render(request, 'posts/index.html', {'form': posts_form}) """
 
 
 #add post using class based views
+@method_decorator(login_required, name='dispatch')
 class AddPostCreateView(CreateView):
     model = models.Post
     form_class = forms.PostsFrom
@@ -35,7 +39,7 @@ class AddPostCreateView(CreateView):
         
 
 
-@login_required
+""" @login_required
 def edit_posts(request, id):
     post = models.Post.objects.get(pk=id)
     posts_form = forms.PostsFrom(instance=post)
@@ -47,10 +51,31 @@ def edit_posts(request, id):
             posts_form.save()
             return redirect('home')
     return render(request, 'posts/index.html', {'form': posts_form})
+ """
+
+#* update posts / edit posts
+@method_decorator(login_required, name='dispatch')
+class EditPostView(UpdateView):
+    model = models.Post
+    form_class = forms.PostsFrom
+    template_name = 'posts/index.html'
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('home')
 
 
-@login_required
+""" @login_required
 def delete_posts(request, id):
     post = models.Post.objects.get(pk=id)
     post.delete()
-    return redirect('home')
+    return redirect('home') """
+
+
+
+#? delete post view
+@method_decorator(login_required, name='dispatch')
+class DeletePostView(DeleteView):
+    model = models.Post
+    template_name = 'posts/delete.html'
+    success_url = reverse_lazy('home')
+    pk_url_kwarg = 'id'
+    
