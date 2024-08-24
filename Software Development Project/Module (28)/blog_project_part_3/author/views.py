@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render, redirect
 from . import forms
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
@@ -5,6 +6,8 @@ from django.contrib.auth import authenticate, login, update_session_auth_hash, l
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from posts.models import Post
+from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -46,6 +49,29 @@ def user_login(request):
     else:
         form = AuthenticationForm()
     return render(request, 'author/register.html', {'form': form, 'type':'Login'}) 
+
+
+#* login view by class
+class UserLoginView(LoginView):
+    template_name = 'author/register.html'
+    # success_url = reverse_lazy('profile')
+    
+    def get_success_url(self):
+        return reverse_lazy('profile')
+    
+    def form_valid(self, form):
+        messages.success(self.request, 'Logged in successfully')
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        messages.warning(self.request, 'Logged in information is not incorrect')
+        return super().form_invalid(form)
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['type'] = 'login'
+        return context
+
 
 @login_required
 def profile(request):
