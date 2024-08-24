@@ -1,51 +1,60 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<div class="d-flex flex-wrap">
-  <div class="col-6">
-    <h1>wlcome to django</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus doloribus alias consequatur eos facilis sint iste similique quas quibusdam esse animi amet ea consequuntur, beatae nisi accusantium, unde illo nemo suscipit ex voluptatibus, corporis in non. Quae repellat maxime, tenetur dolorem veniam quod facere consequuntur ea nisi eos amet recusandae cupiditate alias sapiente possimus officia dolorum deserunt, esse, libero pariatur rerum velit. In aperiam, ex molestias exercitationem aliquid dolores unde debitis aliquam fugiat. Fuga harum, facilis asperiores repellat voluptatum nihil eligendi accusamus illum culpa non! Quas exercitationem illo eos distinctio ullam in officia dolor, sapiente nesciunt numquam! Quos, sunt iusto.</p>
-  </div>
-  <div class="col-6">
-    <img src="{% static 'OIP.jpeg' %}" alt="">
-  </div>
-</div>
-
-<div style="" class="mt-5">
-  <div class="d-flex flex-wrap m-5">
-    <div class="col-2" style="background-color: #ffff;">
-      {% for cat in category %}
-
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="category"
-          id="{{cat.id}}"
-        />
-        <label class="form-check-label" for="{{cat.id}}">
-          <a href="{% url 'category_post' cat.slug %}">{{cat.name}}</a>
-        </label>
-      </div>
-
-      {% endfor %}
+<!-- Main container -->
+<div class="container mt-5">
+  <div class="row">
+    <!-- Introduction section -->
+    <div class="col-lg-6 mb-4">
+      <h1 class="display-4">Welcome to Django</h1>
+      <p class="lead">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus doloribus alias consequatur eos facilis sint iste similique quas quibusdam esse animi amet ea consequuntur, beatae nisi accusantium, unde illo nemo suscipit ex voluptatibus, corporis in non. Quae repellat maxime, tenetur dolorem veniam quod facere consequuntur ea nisi eos amet recusandae cupiditate alias sapiente possimus officia dolorum deserunt, esse, libero pariatur rerum velit. In aperiam, ex molestias exercitationem aliquid dolores unde debitis aliquam fugiat. Fuga harum, facilis asperiores repellat voluptatum nihil eligendi accusamus illum culpa non! Quas exercitationem illo eos distinctio ullam in officia dolor, sapiente nesciunt numquam! Quos, sunt iusto.
+      </p>
     </div>
-    <div class="col-1"></div>
-    <div class="col-9 p-5" style="background-color: tomato;">
-      <h3>{{ data | length }} Result Foun</h3>
-      <div class="row">
-        <div class=" mb-3 mb-sm-0">
-          {% for post in data %}
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{post.title}}</h5>
-              <p class="card-text">{{post.content}}</p>
-              <p>
-                Author: {{post.author.first_name}} {{post.author.last_name}}
-              </p>
+    <!-- Image section -->
+    <div class="col-lg-6 mb-4">
+      <img src="{% static 'OIP.jpeg' %}" class="img-fluid rounded shadow-sm" alt="Descriptive Image Alt Text">
+    </div>
+  </div>
 
-              {% for item in post.category.all %}
-              <small class="bg-warning p-2">{{item.name}}</small>
-              {% endfor %}
+  <div class="row">
+    <!-- Sidebar for category filters -->
+    <div class="col-md-3 mb-4">
+      <div class="bg-light p-3 rounded shadow-sm">
+        <h4 class="mb-3">Categories</h4>
+        {% for cat in category %}
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="category" id="{{ cat.id }}" />
+          <label class="form-check-label" for="{{ cat.id }}">
+            <a href="{% url 'category_post' cat.slug %}" class="text-dark">{{ cat.name }}</a>
+          </label>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Main content area for posts -->
+    <div class="col-md-9">
+      <div class="bg-light p-4 rounded shadow-sm">
+        <h3 class="mb-4">{{ data|length }} Results Found</h3>
+        <div class="row">
+          {% for post in data %}
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+              <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content|slice:":100" }}...</p>
+                <p class="card-text">
+                  <small class="text-muted">Author: {{ post.author.first_name }} {{ post.author.last_name }}</small>
+                </p>
+                <div>
+                  {% for item in post.category.all %}
+                  <small class="badge bg-warning text-dark">{{ item.name }}</small>
+                  {% endfor %}
+                </div>
+              </div>
             </div>
           </div>
           {% endfor %}
