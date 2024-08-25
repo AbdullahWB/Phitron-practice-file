@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+<div class="">
+  <div class="card shadow-sm">
+    <img
+      src="{{ post.image.url }}"
+      class="card-img-top"
+      alt="{{ post.title }}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">{{ post.content}}...</p>
+      <p class="card-text">
+        <small class="text-muted"
+          >Author: {{ post.author.first_name }} {{ post.author.last_name
+          }}</small
+        >
+      </p>
+      <div>
+        {% for item in post.category.all %}
+        <small class="badge bg-warning text-dark">{{ item.name }}</small>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

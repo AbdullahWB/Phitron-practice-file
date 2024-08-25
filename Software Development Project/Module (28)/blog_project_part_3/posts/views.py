@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from django.utils.decorators import method_decorator
+from django.views.generic import DetailView
 
 # Create your views here.
 """ 
@@ -78,4 +79,9 @@ class DeletePostView(DeleteView):
     template_name = 'posts/delete.html'
     success_url = reverse_lazy('home')
     pk_url_kwarg = 'id'
-    
+
+
+class DetailPostView(DetailView):
+    model = models.Post
+    pk_url_kwarg = 'id'
+    template_name = 'posts/post_details.html'
