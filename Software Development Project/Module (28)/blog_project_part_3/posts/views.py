@@ -85,3 +85,20 @@ class DetailPostView(DetailView):
     model = models.Post
     pk_url_kwarg = 'id'
     template_name = 'posts/post_details.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.object 
+        comments = post.comments.objects.all()
+        if self.request.method == 'POST':
+            comment_form = forms.CommentForm(data=self.request.POST)
+            if comment_form.is_valid():
+                new_comment = comment_form.save(commit=False)
+                new_comment.post = post
+                new_comment.save()
+            else:
+                comment_form = forms.CommentForm()
+                
+            context['comments'] = comments
+            context['comment_form'] = comment_form
+            return context
